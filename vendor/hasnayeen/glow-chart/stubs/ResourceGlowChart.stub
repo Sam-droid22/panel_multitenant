@@ -1,0 +1,32 @@
+<?php
+
+namespace {{ namespace }};
+
+use Hasnayeen\GlowChart\GlowChart;
+use Hasnayeen\GlowChart\Chart;
+use Hasnayeen\GlowChart\Enums\ChartType;
+use Hasnayeen\GlowChart\Options;
+use Hasnayeen\GlowChart\Series;
+
+class {{ class }} extends GlowChart
+{
+    protected static ?string $resource = {{ $resource }}::class;
+
+    protected static string $id = '{{ class }}';
+
+    protected static ?string $heading = 'Chart';
+
+    protected function options(Options $options): Options
+    {
+        return $options
+            ->chart(
+                Chart::make(ChartType::{{ type }})
+            );
+    }
+
+    protected function series(Series $series): Series
+    {
+        return $series
+            ->data();
+    }
+}
